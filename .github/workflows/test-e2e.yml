@@ -25,3 +25,4 @@ jobs:
           retention-days: 30
 env:
   VITE_APP_SERVER_FRONT: ${{ secrets.VITE_APP_SERVER_FRONT }}
+  VITE_APP_SERVER: ${{ secrets.VITE_APP_SERVER }}
