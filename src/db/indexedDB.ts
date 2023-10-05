@@ -6,6 +6,7 @@ export interface IndexedDB {
     payload?: ResponseComicAdapter
   ) => Promise<ResponseComicAdapter | null>
   addComic: (comic: ResponseComicAdapter) => Promise<number>
+  getPage: () => Promise<number>
 }
 
 export async function useIndexedDB(): Promise<IndexedDB | undefined> {
@@ -22,18 +23,18 @@ export async function useIndexedDB(): Promise<IndexedDB | undefined> {
       const request = indexedDB.open(dbName, 1)
       let db: IDBDatabase
 
-      request.onupgradeneeded = function (event) {
+      request.onupgradeneeded = (event) => {
         db = (event.target as IDBOpenDBRequest)?.result
         const comicStore = db.createObjectStore('comic', { keyPath: 'num' })
 
         comicStore.createIndex('title', 'title', { unique: false })
       }
 
-      request.onsuccess = function (event) {
+      request.onsuccess = (event) => {
         resolve((event.target as IDBOpenDBRequest).result)
       }
 
-      request.onerror = function () {
+      request.onerror = () => {
         reject(null)
       }
     })
@@ -41,7 +42,7 @@ export async function useIndexedDB(): Promise<IndexedDB | undefined> {
 
   const db = await openDB()
 
-  function addComic(comic: ResponseComicAdapter): Promise<number> {
+  const addComic = (comic: ResponseComicAdapter): Promise<number> => {
     return new Promise((resolve, reject) => {
       if (!db) {
         reject(400)
@@ -52,20 +53,20 @@ export async function useIndexedDB(): Promise<IndexedDB | undefined> {
       const objectStore = transaction.objectStore('comic')
       const request = objectStore.add(comic)
 
-      request.onsuccess = function () {
+      request.onsuccess = () => {
         resolve(200)
       }
 
-      request.onerror = function () {
+      request.onerror = () => {
         reject(400)
       }
     })
   }
 
-  function getOrUpdateComicByNum(
+  const getOrUpdateComicByNum = (
     num: number,
     payload?: ResponseComicAdapter
-  ): Promise<ResponseComicAdapter | null> {
+  ): Promise<ResponseComicAdapter | null> => {
     return new Promise((resolve, reject) => {
       if (!db) {
         reject(null)
@@ -84,19 +85,41 @@ export async function useIndexedDB(): Promise<IndexedDB | undefined> {
         return
       }
 
-      request.onsuccess = function (event) {
+      request.onsuccess = (event) => {
         const comic = (event.target as IDBRequest).result as ResponseComicAdapter
         resolve(comic)
       }
 
-      request.onerror = function () {
+      request.onerror = () => {
         reject(null)
+      }
+    })
+  }
+
+  const getPage = (): Promise<number> => {
+    return new Promise((resolve, reject) => {
+      if (!db) {
+        reject(null)
+        return
+      }
+      const transaction = db.transaction(['comic'], 'readwrite')
+      const objectStore = transaction.objectStore('comic')
+      const request = objectStore.getAllKeys()
+
+      request.onsuccess = (event) => {
+        const page = (event.target as IDBRequest).result as [number]
+        resolve(page.length)
+      }
+
+      request.onerror = () => {
+        reject(0)
       }
     })
   }
 
   return {
     getOrUpdateComicByNum,
-    addComic
+    addComic,
+    getPage
   }
 }
