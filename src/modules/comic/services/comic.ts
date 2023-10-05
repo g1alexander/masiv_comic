@@ -6,7 +6,7 @@ export async function comic(page: number): Promise<ResponseComicAdapter> {
   try {
     const { data } = await xkcdApi().get<Comic>(`/comic?num=${page}`)
 
-    const response = comicAdapter(data)
+    const response = await comicAdapter(data)
 
     return response
   } catch (error) {
