@@ -1,3 +1,21 @@
+<script setup lang="ts">
+import { useIndexedDB } from '@/db/indexedDB'
+import { onMounted } from 'vue'
+import { useComicStore } from './modules/comic/store/index'
+
+const comic = useComicStore()
+
+onMounted(async () => {
+  const indexedDB = await useIndexedDB()
+
+  if (indexedDB) {
+    const page = await indexedDB.getPage()
+
+    comic.setPage(page)
+  }
+})
+</script>
+
 <template>
   <RouterView />
 </template>
