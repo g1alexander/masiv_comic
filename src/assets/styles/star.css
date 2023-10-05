@@ -1,4 +1,4 @@
-.star {
+.home-section__stars__icon {
   position: relative;
 
   display: inline-block;
@@ -10,11 +10,10 @@
   margin-bottom: 1.2em;
 
   border-right: 0.3em solid transparent;
-  /* border-bottom: 0.7em solid #fc0; */
   border-left: 0.3em solid transparent;
 
   /* Controlls the size of the stars. */
-  font-size: 24px;
+  font-size: 18px;
 
   &:before,
   &:after {
@@ -39,7 +38,13 @@
   }
 }
 
-.star-active {
+@media (min-width: 320px) {
+  .home-section__stars__icon {
+    font-size: 15px;
+  }
+}
+
+.home-section__stars__icon.active {
   border-bottom: 0.7em solid #fc0;
 
   &:before,
@@ -48,7 +53,7 @@
   }
 }
 
-.star-disabled {
+.home-section__stars__icon.disabled {
   border-bottom: 0.7em solid gray;
 
   &:before,

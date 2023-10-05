@@ -1,5 +1,6 @@
 import { onMounted, watch } from 'vue'
 import { useComicStore } from '../store'
+import loader from '@/assets/icons/loader.svg'
 
 export function useComic() {
   const comic = useComicStore()
@@ -17,11 +18,12 @@ export function useComic() {
 
   const starClass = (star: number) => {
     return {
-      'star-active': star <= comic.getComic.stars,
-      'star-disabled': star > comic.getComic.stars
+      active: star <= comic.getComic.stars,
+      disabled: star > comic.getComic.stars
     }
   }
   return {
+    loader,
     comic,
     setStar,
     starClass
