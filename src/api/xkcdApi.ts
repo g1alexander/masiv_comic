@@ -1,19 +1,12 @@
-interface Response<T> {
-  status: number
-  statusText: string
-  data: T
-}
+import { fetchApi, type Response } from './fetch/fetchApi'
 
 export const xkcdApi = () => {
   const get = async <T>(url: string): Promise<Response<T>> => {
     try {
-      const response = await fetch(`${process.env.VITE_APP_SERVER}${url}`, {
+      const response = await fetchApi<T>({
+        url: `${process.env.VITE_APP_SERVER}${url}`,
         method: 'GET'
-      }).then(async (res) => ({
-        status: res.status,
-        statusText: res.statusText,
-        data: await res.json()
-      }))
+      })
 
       return response
     } catch (error) {
@@ -28,14 +21,11 @@ export const xkcdApi = () => {
 
   const put = async <T>(url: string, data: string): Promise<Response<T>> => {
     try {
-      const response = await fetch(`${process.env.VITE_APP_SERVER}${url}`, {
+      const response = await fetchApi<T>({
+        url: `${process.env.VITE_APP_SERVER}${url}`,
         method: 'PUT',
         body: data
-      }).then(async (res) => ({
-        status: res.status,
-        statusText: res.statusText,
-        data: await res.json()
-      }))
+      })
 
       return response
     } catch (error) {
@@ -50,14 +40,11 @@ export const xkcdApi = () => {
 
   const post = async <T>(url: string, data: string): Promise<Response<T>> => {
     try {
-      const response = await fetch(`${process.env.VITE_APP_SERVER}${url}`, {
+      const response = await fetchApi<T>({
+        url: `${process.env.VITE_APP_SERVER}${url}`,
         method: 'POST',
         body: data
-      }).then(async (res) => ({
-        status: res.status,
-        statusText: res.statusText,
-        data: await res.json()
-      }))
+      })
 
       return response
     } catch (error) {
@@ -72,14 +59,11 @@ export const xkcdApi = () => {
 
   const remove = async <T>(url: string, data: string): Promise<Response<T>> => {
     try {
-      const response = await fetch(`${process.env.VITE_APP_SERVER}${url}`, {
+      const response = await fetchApi<T>({
+        url: `${process.env.VITE_APP_SERVER}${url}`,
         method: 'DELETE',
         body: data
-      }).then(async (res) => ({
-        status: res.status,
-        statusText: res.statusText,
-        data: await res.json()
-      }))
+      })
 
       return response
     } catch (error) {

@@ -11,6 +11,7 @@ export const useState = defineStore('comic.state', {
       title: '',
       transcript: '',
       stars: 0
-    }
+    },
+    page: 1
   })
 })
