@@ -1,5 +1,7 @@
 name: test-e2e
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
 jobs:
@@ -23,5 +25,5 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-# env:
-#   VITE_APP_LAMBDA: ${{ secrets.VITE_APP_LAMBDA }}
+env:
+  VITE_APP_SERVER_FRONT: ${{ secrets.VITE_APP_SERVER_FRONT }}
