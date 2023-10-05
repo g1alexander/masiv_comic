@@ -1,1 +1,1 @@
-export * from './useComic'
+export * from './useHomeView'
