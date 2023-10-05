@@ -17,5 +17,5 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test:unit
-# env:
-# VITE_APP_LAMBDA: ${{ secrets.VITE_APP_LAMBDA }}
+env:
+  VITE_APP_SERVER_FRONT: ${{ secrets.VITE_APP_SERVER_FRONT }}

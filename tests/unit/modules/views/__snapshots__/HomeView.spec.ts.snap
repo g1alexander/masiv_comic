@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`component ExtraFormView.vue > to match snapshot 1`] = `
+"<main>
+  <h1>hola</h1>
+</main>"
+`;

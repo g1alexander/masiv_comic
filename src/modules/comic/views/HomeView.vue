@@ -1,8 +1,7 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main>
-    hola
+    <h1>hola</h1>
   </main>
 </template>

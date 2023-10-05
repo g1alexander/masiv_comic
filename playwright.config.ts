@@ -17,7 +17,7 @@ dotenv.config({ path: path.resolve(__dirname, '.', '.env.local') })
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: './test/e2e',
+  testDir: './tests/e2e',
   /* Maximum time one test can run for. */
   timeout: 80 * 1000,
   expect: {
@@ -111,7 +111,7 @@ const config: PlaywrightTestConfig = {
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: 'test/e2e/test-results/'
+  outputDir: 'tests/e2e/test-results/'
 
   /* Run your local dev server before starting the tests */
   // webServer: {
