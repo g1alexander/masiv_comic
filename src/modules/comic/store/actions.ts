@@ -22,6 +22,7 @@ export const useActions = defineStore('comic.actions', () => {
 
       return
     }
+    localStorage.setItem('page', JSON.stringify(payload))
     state.page = payload
   }
 

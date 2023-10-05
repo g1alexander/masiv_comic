@@ -6,7 +6,6 @@ export interface IndexedDB {
     payload?: ResponseComicAdapter
   ) => Promise<ResponseComicAdapter | null>
   addComic: (comic: ResponseComicAdapter) => Promise<number>
-  getPage: () => Promise<number>
 }
 
 export async function useIndexedDB(): Promise<IndexedDB | undefined> {
@@ -96,30 +95,8 @@ export async function useIndexedDB(): Promise<IndexedDB | undefined> {
     })
   }
 
-  const getPage = (): Promise<number> => {
-    return new Promise((resolve, reject) => {
-      if (!db) {
-        reject(null)
-        return
-      }
-      const transaction = db.transaction(['comic'], 'readwrite')
-      const objectStore = transaction.objectStore('comic')
-      const request = objectStore.getAllKeys()
-
-      request.onsuccess = (event) => {
-        const page = (event.target as IDBRequest).result as [number]
-        resolve(page.length)
-      }
-
-      request.onerror = () => {
-        reject(0)
-      }
-    })
-  }
-
   return {
     getOrUpdateComicByNum,
-    addComic,
-    getPage
+    addComic
   }
 }
