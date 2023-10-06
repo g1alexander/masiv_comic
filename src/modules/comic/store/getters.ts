@@ -7,7 +7,13 @@ export const useGetters = defineStore('comic.getters', () => {
 
   const getIsLoading = computed(() => state.isLoading)
 
+  const getComic = computed(() => state.comic)
+
+  const getPage = computed(() => state.page)
+
   return {
-    getIsLoading
+    getIsLoading,
+    getComic,
+    getPage
   }
 })

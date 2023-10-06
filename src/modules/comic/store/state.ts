@@ -3,6 +3,15 @@ import { defineStore } from 'pinia'
 
 export const useState = defineStore('comic.state', {
   state: (): State => ({
-    isLoading: false
+    isLoading: false,
+    comic: {
+      alt: '',
+      img: '',
+      num: 0,
+      title: '',
+      transcript: '',
+      stars: 0
+    },
+    page: 1
   })
 })
