@@ -428,6 +428,13 @@
   resolved "https://registry.yarnpkg.com/@one-ini/wasm/-/wasm-0.1.1.tgz#6013659736c9dbfccc96e8a9c2b3de317df39323"
   integrity sha512-XuySG1E38YScSJoMlqovLru4KTUNSjgVTIjyh7qMX6aNN5HY5Ct5LhRJdxO79JtTzKfzV/bnWpz+zquYrISsvw==
 
+"@pinia/testing@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@pinia/testing/-/testing-0.1.3.tgz#ee46a5a51d437f845ddc9c7b048c98b6a435e68b"
+  integrity sha512-D2Ds2s69kKFaRf2KCcP1NhNZEg5+we59aRyQalwRm7ygWfLM25nDH66267U3hNvRUOTx8ofL24GzodZkOmB5xw==
+  dependencies:
+    vue-demi ">=0.14.5"
+
 "@pkgr/utils@^2.3.1":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-2.4.2.tgz#9e638bbe9a6a6f165580dc943f138fd3309a2cbc"
@@ -3395,6 +3402,11 @@ vue-component-type-helpers@1.8.4:
   version "1.8.4"
   resolved "https://registry.yarnpkg.com/vue-component-type-helpers/-/vue-component-type-helpers-1.8.4.tgz#302d85fac912519cdf0dd2fb51402e5215d85628"
   integrity sha512-6bnLkn8O0JJyiFSIF0EfCogzeqNXpnjJ0vW/SZzNHfe6sPx30lTtTXlE5TFs2qhJlAtDFybStVNpL73cPe3OMQ==
+
+vue-composable-tester@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/vue-composable-tester/-/vue-composable-tester-0.1.3.tgz#e7cd22d8ebd38172b95c233681511a2e37b1065f"
+  integrity sha512-iiJUoW88CwTFzbvjVLe30twrj6tmyTxMOM5aQfSjSlPtGaONFNAoNzR0T990sv4gpFPQIvo0fHPNRhKti46drQ==
 
 vue-demi@>=0.14.5:
   version "0.14.6"
