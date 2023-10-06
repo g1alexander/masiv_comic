@@ -18,7 +18,7 @@ const starClass = (star: number) => {
   <img class="home-section__img" :src="comic.getComic.img" :alt="comic.getComic.alt" />
 
   <div class="home-section__stars">
-    <h3>Puntuacion:</h3>
+    <h3>Score:</h3>
     <p>
       <template v-for="star in 5" :key="star">
         <i @click="setStar(star)" class="home-section__stars__icon" :class="starClass(star)"></i>
