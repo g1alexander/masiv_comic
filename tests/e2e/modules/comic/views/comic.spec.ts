@@ -7,7 +7,11 @@ test.describe('UI home', () => {
     await page.goto('/')
 
     await expect(page.locator('[data-home=title]')).toHaveText('BARREL - PART 1')
-    await expect(page.locator('[data-home=img]')).toHaveScreenshot()
+    await expect(page.locator('[data-home=img]')).toHaveAttribute('alt', "Don't we all.")
+    await expect(page.locator('[data-home=img]')).toHaveAttribute(
+      'src',
+      'https://imgs.xkcd.com/comics/barrel_cropped_(1).jpg'
+    )
 
     await expect((await page.locator('[data-home=star]').all()).length).toBe(5)
 
