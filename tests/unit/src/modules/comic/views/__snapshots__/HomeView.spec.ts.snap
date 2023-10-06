@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`component HomeView.vue > to match snapshot 1`] = `"<main class=\\"home\\"><img src=\\"/src/assets/icons/loader.svg\\" alt=\\"loading...\\" width=\\"180\\"></main>"`;

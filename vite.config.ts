@@ -9,7 +9,8 @@ export default defineConfig({
   plugins: [EnvironmentPlugin('all', { prefix: 'VITE_APP_' }), vue()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@tu': fileURLToPath(new URL('./tests/unit', import.meta.url))
     }
   }
 })
