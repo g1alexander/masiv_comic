@@ -36,28 +36,28 @@
   &:after {
     transform: rotate(35deg);
   }
+
+  &.active {
+    border-bottom: 0.7em solid #fc0;
+
+    &:before,
+    &:after {
+      border-bottom: 0.7em solid #fc0;
+    }
+  }
+
+  &.disabled {
+    border-bottom: 0.7em solid gray;
+
+    &:before,
+    &:after {
+      border-bottom: 0.7em solid gray;
+    }
+  }
 }
 
 @media (min-width: 320px) {
   .home-section__stars__icon {
     font-size: 15px;
-  }
-}
-
-.home-section__stars__icon.active {
-  border-bottom: 0.7em solid #fc0;
-
-  &:before,
-  &:after {
-    border-bottom: 0.7em solid #fc0;
-  }
-}
-
-.home-section__stars__icon.disabled {
-  border-bottom: 0.7em solid gray;
-
-  &:before,
-  &:after {
-    border-bottom: 0.7em solid gray;
   }
 }
