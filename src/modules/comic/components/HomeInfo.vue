@@ -14,14 +14,25 @@ const starClass = (star: number) => {
 </script>
 
 <template>
-  <h1 class="home-section__h1">{{ comic.getComic.title.toUpperCase() }}</h1>
-  <img class="home-section__img" :src="comic.getComic.img" :alt="comic.getComic.alt" />
+  <h1 data-home="title" class="home-section__h1">{{ comic.getComic.title.toUpperCase() }}</h1>
+  <img
+    data-home="img"
+    class="home-section__img"
+    :src="comic.getComic.img"
+    :alt="comic.getComic.alt"
+  />
 
   <div class="home-section__stars">
     <h3>Score:</h3>
     <p>
       <template v-for="star in 5" :key="star">
-        <i @click="setStar(star)" class="home-section__stars__icon" :class="starClass(star)"></i>
+        <i
+          data-home="star"
+          :data-star="`s-${star}`"
+          @click="setStar(star)"
+          class="home-section__stars__icon"
+          :class="starClass(star)"
+        ></i>
       </template>
     </p>
   </div>

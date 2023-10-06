@@ -11,8 +11,10 @@ watch(
 </script>
 
 <template>
-  <article class="home-section__btns">
-    <button v-if="comic.getPage > 1" @click="comic.setPage(comic.getPage - 1)">prev</button>
-    <button @click="comic.setPage(comic.getPage + 1)">next</button>
+  <article data-home="btns" class="home-section__btns">
+    <button data-btn="prev" v-if="comic.getPage > 1" @click="comic.setPage(comic.getPage - 1)">
+      prev
+    </button>
+    <button data-btn="next" @click="comic.setPage(comic.getPage + 1)">next</button>
   </article>
 </template>
