@@ -23,7 +23,7 @@ const starClass = (star: number) => {
   />
 
   <div class="home-section__stars">
-    <h3>Score:</h3>
+    <h3>Rate:</h3>
     <p>
       <template v-for="star in 5" :key="star">
         <i

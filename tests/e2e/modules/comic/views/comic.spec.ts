@@ -53,7 +53,7 @@ test.describe('UI home', () => {
     await expect(page.locator('[data-home=title]')).toHaveText('BARREL - PART 1')
   })
 
-  test('Score Test', async ({ page }) => {
+  test('Rate Test', async ({ page }) => {
     await page.goto('/')
 
     await page.locator('[data-star=s-4]').click()
