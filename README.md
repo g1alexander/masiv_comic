@@ -10,7 +10,11 @@ Masiv technical test.
 ## Project Setup
 
 ```sh
+# install dependencies
 yarn
+
+# config environment (place the values of the provided keys)
+mv .env.example .env.local
 ```
 
 ### Compile and Hot-Reload for Development
